@@ -318,7 +318,24 @@ public class SwiftyPlistManager {
       return nil
     }
   }
-  
+ 
+  public func getKeys(fromPlistWithName: String, completion:(_ result : [String], _ error :SwiftyPlistManagerError?) -> ()){
+      if let plist = Plist(name: fromPlistWithName) {
+          guard let dict = plist.getMutablePlistFile() else {
+              plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
+              completion([], .fileUnavailable)
+              return
+          }
+
+          completion(dict.allKeys as! [String], nil)
+
+
+       } else {
+          plistManagerPrint("Unable to get '\(fromPlistWithName).plist'")
+          completion([], .fileUnavailable)
+      }
+  }
+ 
   public func getValue(for key: String, fromPlistWithName: String, completion:(_ result : Any?, _ error :SwiftyPlistManagerError?) -> ()) {
     var value:Any?
     
