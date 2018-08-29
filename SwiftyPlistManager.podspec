@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'SwiftyPlistManager'
   s.version = '1.0.3'
-  s.summary = 'Skillset Structs in Swift'
+  s.summary = 'Lightweight plist data management framework for iOS 10.3+'
   s.authors = {
     "Alex Nagy" => "therebeloper@gmail.com",
     "Khalid Mills"  => "khalid@skillset.ai"
